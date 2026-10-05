@@ -1,0 +1,3 @@
+pymol-open-source
+pillow
+requests

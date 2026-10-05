@@ -1,0 +1,18 @@
+{
+  "_note": "username is a local fallback only. In the Action, GH_USER is set to the repo owner. Edit 'research' to change the research card. Remove items you don't want shown.",
+  "username": "codedbyusef",
+  "research": [
+    {
+      "label": "Role",
+      "value": "Research Coordinator @ DSI"
+    },
+    {
+      "label": "Research focus",
+      "value": "Computational Biology"
+    },
+    {
+      "label": "Current lab (Computational Immuno-oncology)",
+      "value": "Shaw Lab @ Moffitt"
+    }
+  ]
+}

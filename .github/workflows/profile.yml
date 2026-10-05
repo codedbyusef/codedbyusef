@@ -1,0 +1,48 @@
+name: profile-assets
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - "assets/**"
+  schedule:
+    - cron: "0 6 * * 1"   # weekly, Monday 06:00 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Render protein animation
+        run: python scripts/render_protein.py
+
+      - name: Render stats cards
+        env:
+          GH_USER: ${{ github.repository_owner }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python scripts/render_stats.py
+
+      - name: Commit changed assets
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets
+          if git diff --cached --quiet; then
+            echo "No asset changes"
+          else
+            git commit -m "Update profile assets"
+            git push
+          fi
