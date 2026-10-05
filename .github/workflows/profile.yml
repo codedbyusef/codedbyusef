@@ -12,6 +12,11 @@ on:
 permissions:
   contents: write
 
+# Run one at a time so two runs can't race to push the same assets.
+concurrency:
+  group: profile-assets
+  cancel-in-progress: false
+
 jobs:
   render:
     runs-on: ubuntu-latest
@@ -44,5 +49,6 @@ jobs:
             echo "No asset changes"
           else
             git commit -m "Update profile assets"
+            git pull --rebase -q origin main
             git push
           fi
