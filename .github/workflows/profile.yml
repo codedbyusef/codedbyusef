@@ -31,9 +31,6 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Render protein animation
-        run: python scripts/render_protein.py
-
       - name: Render stats cards
         env:
           GH_USER: ${{ github.repository_owner }}
