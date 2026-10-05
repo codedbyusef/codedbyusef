@@ -1,6 +1,8 @@
 <div align="center">
 
-<img src="assets/hero-protein.gif" width="420" alt="PD-1 bound to PD-L1 (PDB 4ZQK), rotating" />
+<img src="assets/hero-protein.gif" width="420" alt="PD-L1 apo monomer morphing into the inhibitor-bound form, then the inhibitor-bound dimer rotating" />
+
+<sub>PD-L1 dimerization. Apo monomer [5C3T](https://www.rcsb.org/structure/5C3T) morphs into the inhibitor-bound form [5J89](https://www.rcsb.org/structure/5J89), interpolated between the two experimental structures. Then the inhibitor-bound dimer rotates.</sub>
 
 # Youssef Alhamzawi
 
